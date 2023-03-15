@@ -85,6 +85,7 @@ const Chart = ({ data, start, end }: IChartProps) => {
               dataKey="value_area"
               fill="#76b6ff"
               cursor="pointer"
+              isAnimationActive={false}
               dot={(props) => (
                 <CustomDot
                   key={props.key}
