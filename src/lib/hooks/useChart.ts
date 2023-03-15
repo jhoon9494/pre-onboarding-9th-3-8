@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getData } from '@/api/chartData';
 import { API_URL } from '@/constants/url';
 import { IChart } from '@/interface/chartData';
-import { generateStartAndEndDate } from '@/lib/utils/generateDate';
+import { generateStartAndEndDate } from '@/lib/utils/generate';
 import transformData from '@/lib/utils/transformData';
 
 const useChart = () => {
