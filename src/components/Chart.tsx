@@ -31,7 +31,7 @@ const Chart = ({ data, start, end }: IChartProps) => {
               top: 40,
               right: 30,
               left: 20,
-              bottom: 20,
+              bottom: 40,
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
@@ -65,6 +65,7 @@ const Chart = ({ data, start, end }: IChartProps) => {
                     fill={
                       !id ? '#f78c76' : entry.id === id ? '#f78c76' : '#bababa'
                     }
+                    cursor="pointer"
                     onClick={() => navigate(`/${entry.id}`)}
                   />
                 );
