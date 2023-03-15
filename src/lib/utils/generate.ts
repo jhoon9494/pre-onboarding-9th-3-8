@@ -14,3 +14,7 @@ export const generateStartAndEndDate = (data: IChart[]) => {
 
   return { start, end };
 };
+
+export const generateIdList = (data: IChart[]) => {
+  return Array.from(new Set(data.map((chart) => chart.id)));
+};
