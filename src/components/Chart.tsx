@@ -14,10 +14,18 @@ import {
 import CustomTooltip from '@/components/CustomTooltips';
 import { IChartProps } from '@/interface/props';
 import CustomDot from './CustomDot';
+import { CategoricalChartState } from 'recharts/types/chart/generateCategoricalChart';
 
 const Chart = ({ data, start, end }: IChartProps) => {
   const navigate = useNavigate();
   const { id } = useParams();
+
+  const onFilter = (obj: CategoricalChartState) => {
+    const { activePayload } = obj;
+    if (activePayload) {
+      navigate(`/${activePayload[0].payload.id}`);
+    }
+  };
 
   return (
     <>
@@ -33,6 +41,7 @@ const Chart = ({ data, start, end }: IChartProps) => {
               left: 20,
               bottom: 40,
             }}
+            onClick={(obj) => onFilter(obj)}
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="date" />
@@ -66,7 +75,6 @@ const Chart = ({ data, start, end }: IChartProps) => {
                       !id ? '#f78c76' : entry.id === id ? '#f78c76' : '#bababa'
                     }
                     cursor="pointer"
-                    onClick={() => navigate(`/${entry.id}`)}
                   />
                 );
               })}
@@ -76,6 +84,7 @@ const Chart = ({ data, start, end }: IChartProps) => {
               type="monotone"
               dataKey="value_area"
               fill="#76b6ff"
+              cursor="pointer"
               dot={(props) => (
                 <CustomDot
                   key={props.key}
