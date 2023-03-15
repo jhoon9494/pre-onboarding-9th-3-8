@@ -1,3 +1,4 @@
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   XAxis,
   YAxis,
@@ -8,14 +9,20 @@ import {
   Bar,
   ComposedChart,
   ResponsiveContainer,
+  Cell,
 } from 'recharts';
 import CustomTooltip from '@/components/CustomTooltips';
 import { IChartProps } from '@/interface/props';
+import CustomDot from './CustomDot';
 
 const Chart = ({ data, start, end }: IChartProps) => {
+  const navigate = useNavigate();
+  const { id } = useParams();
+
   return (
     <>
-      <h1>{`${start} ~ ${end}`}</h1>
+      <h1>{id ? id : '전체목록'}</h1>
+      <h2>{`${start} ~ ${end}`}</h2>
       <div className="inner">
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart
@@ -24,6 +31,7 @@ const Chart = ({ data, start, end }: IChartProps) => {
               top: 40,
               right: 30,
               left: 20,
+              bottom: 20,
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
@@ -40,21 +48,43 @@ const Chart = ({ data, start, end }: IChartProps) => {
             />
             <Tooltip
               content={<CustomTooltip />}
+              cursor={{ strokeWidth: 5, stroke: '#f78c76' }}
               wrapperStyle={{ outline: 'none' }}
             />
             <Legend />
             <Bar
               yAxisId="left"
               dataKey="value_bar"
-              fill="#868e96"
+              fill={'#f78c76'}
               barSize={20}
-            />
+            >
+              {data.map((entry, index) => {
+                return (
+                  <Cell
+                    key={`Cell-${index}`}
+                    fill={
+                      !id ? '#f78c76' : entry.id === id ? '#f78c76' : '#bababa'
+                    }
+                    onClick={() => navigate(`/${entry.id}`)}
+                  />
+                );
+              })}
+            </Bar>
             <Area
               yAxisId="right"
               type="monotone"
               dataKey="value_area"
-              stroke="#ff8787"
-              fill="#ffa8a8"
+              fill="#76b6ff"
+              dot={(props) => (
+                <CustomDot
+                  key={props.key}
+                  data={props.payload}
+                  cx={props.cx}
+                  cy={props.cy}
+                  id={id}
+                />
+              )}
+              activeDot={{ stroke: '#76b6ff', strokeWidth: 2, r: 10 }}
             />
           </ComposedChart>
         </ResponsiveContainer>
