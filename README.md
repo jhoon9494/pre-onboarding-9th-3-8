@@ -6,10 +6,14 @@
 
 - [최종 결과물 바로가기](https://pre-onboarding-9th-3-8.netlify.app/chart)
 
+<br />
+
 ## **📝 과제 목적**
 
 - 주어진 데이터를 기반으로 시계열 차트 만들기
 - Best Practice 만들어 제출하기
+
+<br />
 
 ## ✅ 과제 진행 방법
 
@@ -20,6 +24,26 @@
 3. 필터링 구현
 
 분류에 따라 팀원 개개인이 과제를 수행했습니다. 리뷰 시간을 정하여 해당 시간에 PR에서 코드리뷰를 했습니다. 투표를 통해 Best Practice를 선정한 후, 다른 과제 중 좋았던 구현들을 의논하여 추가하였습니다. [이슈](https://github.com/Wanted-PreOnboarding-Team-8/pre-onboarding-9th-3-8/issues)와 [PR메시지](https://github.com/Wanted-PreOnboarding-Team-8/pre-onboarding-9th-3-8/pulls)를 활용하여 문서화하였습니다.
+
+<br />
+
+## 👍 내가 구현한 기능
+
+- [시계열 차트 생성 PR](https://github.com/Wanted-PreOnboarding-Team-8/pre-onboarding-9th-3-8/pull/4) **👍 Best Practice**
+    - 시계열 차트와 툴팁을 구현
+    - Recharts 라이브러리를 이용하여 구현
+    
+- [차트 필터링 PR](https://github.com/Wanted-PreOnboarding-Team-8/pre-onboarding-9th-3-8/pull/16)
+    - 지역별로 차트 필터링 구현
+    - useParams를 이용하여 필터링 구현
+    - Recharts의 일부 요소에서 렌더링 이슈가 발생하여, [문제 상황 및 해결 방법을 공유 및 문서화](https://github.com/Wanted-PreOnboarding-Team-8/pre-onboarding-9th-3-8/issues/12)
+
+### 배운 점
+
+- 주로 어떤 resource를 식별할 때 path variable을 사용하고,
+- 정렬이나 필터링을 한다면 query string을 사용하는 것이 이상적이라는 부분
+
+<br />
 
 ## 🌟 Best Practice 선정 및 이유
 
@@ -37,12 +61,15 @@
     
     • useChart 커스텀 훅을 이용한 관심사 분리가 된 점
     
+<br />
 
 ## **🐞 이슈 및 버그**
 
 - **Mar 17, 2023**  　|　[Charts 크기에 따른 하이라이트 이슈](https://github.com/Wanted-PreOnboarding-Team-8/pre-onboarding-9th-3-8/issues/26)
 - **Mar 16, 2023**  　|　[Recharts dot 렌더링 이슈 공유](https://github.com/Wanted-PreOnboarding-Team-8/pre-onboarding-9th-3-8/issues/12)
 - **Mar 15, 2023**  　|　[EDA: 목데이터 특성 파악](https://github.com/Wanted-PreOnboarding-Team-8/pre-onboarding-9th-3-8/issues/11)
+
+<br />
 
 ## **👨‍💻 팀원 소개**
 <table border>
@@ -110,6 +137,7 @@
   </tbody>
 </table>
 
+<br />
 
 ## **🚀 기능**
 
@@ -118,6 +146,8 @@
 - 필터링 기능 (지역별, 다중선택)
 
 ![demo](https://user-images.githubusercontent.com/17325845/225849849-52da46a7-a5d5-4bb9-b1e9-f21dfbb5fc33.gif)
+
+<br />
 
 ## ✨ 기술 스택
 
@@ -132,11 +162,15 @@
     - 상세한 문서 및 예시
     - 다양한 커스터마이징 기능을 제공
 
+<br />
+
 ## 🤝 협업 툴
 
 - Discord
 - Notion
 - Github
+
+<br />
 
 ## **🗂️ 디렉토리 구조**
 
@@ -155,6 +189,8 @@ src
  ┗ pages
    ┗ chartpage
 ```
+
+<br />
 
 ## ⚙️ 설치 및 실행 가이드
 
